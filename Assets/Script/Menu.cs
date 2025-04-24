@@ -4,14 +4,13 @@ using UnityEngine.SceneManagement;
 public class Menu: MonoBehaviour
 {
     [SerializeField] private AudioClip som;
-    private AudioSource player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private AudioSource player; 
+
     void Start()
     {
         player = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
