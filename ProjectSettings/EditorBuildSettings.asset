@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Animes/SelecionarFireForce.unity
     guid: e2ad6561a2fd7334bb9b1b662debc11d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Animes/SelecionarDemonSlayer.unity
     guid: 3b555732e81bec3499495d3c37d0d105
   - enabled: 1

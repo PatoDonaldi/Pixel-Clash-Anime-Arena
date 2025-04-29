@@ -75,19 +75,7 @@ public class Menu: MonoBehaviour
     {
         SceneManager.LoadScene("Caminho");
     }
-    public void Battle1()
-    {
-        SceneManager.LoadScene("Battle1");
-    }
-    public void Battle12()
-    {
-        SceneManager.LoadScene("Battle12");
-    }
-    public void Battle13()
-    {
-        SceneManager.LoadScene("Battle13");
-    }
-    public void Battle14()
+    public void Battle14o()
     {
         SceneManager.LoadScene("Battle14 ");
     }
