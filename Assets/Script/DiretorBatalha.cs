@@ -1,6 +1,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DiretorBatalha : MonoBehaviour
 {
@@ -11,6 +13,13 @@ public class DiretorBatalha : MonoBehaviour
     [SerializeField] TextMeshProUGUI nomePlayer;
     [SerializeField] TextMeshProUGUI nomeInimigo;
     [SerializeField] TextMeshProUGUI informativo;
+    [SerializeField] TextMeshProUGUI indicadorEspecial;
+    [SerializeField] GameObject textoTextoVitoria;
+    [SerializeField] GameObject textoTextoDerrota;
+    [SerializeField] Button botaoEspecial;
+    [SerializeField] Button botaoAtaque;
+    string turno = "Player";
+    bool verificadorDeTurno = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,32 +28,53 @@ public class DiretorBatalha : MonoBehaviour
         vidaInimigo.text = inimigo.GetVida().ToString();
         nomePlayer.text = player.GetNomePersonagem();
         nomeInimigo.text = inimigo.GetNomePersonagem();
+        indicadorEspecial.text = player.ValorEspecial().ToString();
+        botaoEspecial.interactable = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        AtualizaDadosTela();
 
+        if (turno == "Player" && verificadorDeTurno && player.VerificaVida())
+        {
+            botaoAtaque.interactable = true;
+
+            if (player.VerificaEspecial())
+            {
+                botaoEspecial.interactable = true;
+            }
+            else
+            {
+                botaoEspecial.interactable = false;
+            }
+
+            verificadorDeTurno = false;
+        }
+        else if (turno == "Inimigo" && verificadorDeTurno && inimigo.VerificaVida())
+        {
+            StartCoroutine(AtaqueInimigo());
+        }
+
+        VerificaVitoria();
     }
 
     public void AtaquePlayer()
     {
         inimigo.LevarDano(player.Ataque());
-        player.LevarDano(inimigo.Ataque());
-        AtualizaDadosTela();
+        StartCoroutine(AtaqueP());
     }
 
     public void AtaqueEspecial()
     {
         inimigo.LevarDano(player.Especial());
-        player.LevarDano(inimigo.Ataque());
-        AtualizaDadosTela();
+        StartCoroutine(AtaqueP());
     }
 
     private void AtualizaDadosTela()
     {
-        vidaPlayer.text = player.GetVida().ToString();
-        vidaInimigo.text = inimigo.GetVida().ToString();
+        vidaPlayer.text = "Vida: " + player.GetVida().ToString();
+        vidaInimigo.text = "Vida: " + inimigo.GetVida().ToString();
     }
 
     public void RecebeTexto(string texto)
@@ -54,8 +84,64 @@ public class DiretorBatalha : MonoBehaviour
 
     private IEnumerator ExibeTexto(string texto)
     {
-        informativo.text = texto;
-        yield return new WaitForSeconds(1f);
-        //informativo.text = "";
+        informativo.text += texto + "\n";
+        yield return new WaitForSeconds(5f);
+        informativo.text = "";
+    }
+
+    private IEnumerator AtaqueInimigo()
+    {
+        verificadorDeTurno = false;
+
+        if (turno == "Inimigo")
+        {
+            botaoAtaque.interactable = false;
+            botaoEspecial.interactable = false;
+            player.LevarDano(inimigo.Ataque());
+            yield return new WaitForSeconds(5f);
+            verificadorDeTurno = true;
+            turno = "Player";
+        }
+    }
+
+    private IEnumerator AtaqueP()
+    {
+        verificadorDeTurno = false;
+        botaoAtaque.interactable = false;
+        botaoEspecial.interactable = false;
+        indicadorEspecial.text = player.ValorEspecial().ToString();
+
+        if (turno == "Player")
+        {
+            yield return new WaitForSeconds(5f);
+            verificadorDeTurno = true;
+            turno = "Inimigo";
+        }
+    }
+
+    public void VerificaVitoria()
+    {
+        if (!inimigo.VerificaVida())
+        {
+            StartCoroutine(TelaVitoria());
+        }
+        else if (!player.VerificaVida())
+        {
+            player.PlaySomMorte();
+            textoTextoDerrota.SetActive(true);
+        }
+    }
+
+    IEnumerator TelaVitoria()
+    {
+        yield return new WaitForSeconds(2.0f);
+        player.PlaySomVitoria();
+        yield return new WaitForSeconds(1.0f);
+        textoTextoVitoria.SetActive(true);
+    }
+
+    public void ReiniciarJogo()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

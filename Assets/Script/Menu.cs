@@ -83,4 +83,8 @@ public class Menu: MonoBehaviour
     {
         SceneManager.LoadScene("Battle15");
     }
+    public void Continue()
+    {
+        SceneManager.LoadScene("Continue");
+    }
 }

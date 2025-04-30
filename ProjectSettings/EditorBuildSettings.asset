@@ -48,7 +48,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Comum/Battle13.unity
     guid: 1622d8b57240b454099fbc6c110d73a9
   - enabled: 1
-    path: Assets/Scenes/Comum/Battle14.unity
+    path: Assets/Scenes/Comum/Continue.unity
     guid: ddc5400b64329884893562c38a2c958b
   - enabled: 1
     path: Assets/Scenes/Comum/Battle15.unity
