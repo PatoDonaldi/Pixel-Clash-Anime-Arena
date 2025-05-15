@@ -300,8 +300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60.5188, y: 394}
-  m_SizeDelta: {x: 475.1538, y: 173.78}
+  m_AnchoredPosition: {x: -63.22113, y: 369.67914}
+  m_SizeDelta: {x: 469.7491, y: 168.3753}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338015977
 MonoBehaviour:
@@ -1406,8 +1406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomePersonagem: Benimaru
   vida: 100
-  ataque: 1000
-  defesa: 18
+  ataque: 15
+  defesa: 50
   especial: 0
   estahVivo: 1
   dB: {fileID: 1487944385}
@@ -2135,8 +2135,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150.25, y: 394}
-  m_SizeDelta: {x: 1010.493, y: 173.7842}
+  m_AnchoredPosition: {x: 152.9524, y: 366.45}
+  m_SizeDelta: {x: 1015.8976, y: 228.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1561492091
 MonoBehaviour:

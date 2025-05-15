@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-transparent-transparency-and-translucency-pixel-art-speech-balloon-text-angle-text-rectangle-thumbnail-removebg-preview_0: 3086246050093024177
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

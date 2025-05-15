@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blue-neon-button-png-removebg-preview_0: -918294476869487685
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

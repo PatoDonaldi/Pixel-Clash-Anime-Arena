@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixel-art-fire-png-2933-288x300-removebg-preview_0: -4033750879267439841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

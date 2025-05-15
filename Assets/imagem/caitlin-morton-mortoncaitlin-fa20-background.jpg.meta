@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      caitlin-morton-mortoncaitlin-fa20-background_0: -5001612080574935202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
